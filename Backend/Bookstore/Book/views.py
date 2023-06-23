@@ -4,12 +4,14 @@ from .serializers import BookSerializer
 from rest_framework.response import Response
 from .models import Book
 
+#Display a list of available books.
 @api_view(['GET'])
 def BookList(request):
     books = Book.objects.all()
     serializer = BookSerializer(books, many=True)
     return Response(serializer.data)
 
+#Add a book to the list/database
 @api_view(['POST'])
 def AddBook(request):
     serializer = BookSerializer(data=request.data)
@@ -17,5 +19,5 @@ def AddBook(request):
         serializer.save()
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
-    # return Response({"name":"Samrat"})
+    
 

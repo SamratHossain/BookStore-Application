@@ -5,6 +5,7 @@ class Book(models.Model):
     isbn = models.CharField(max_length=13, unique=True)
     author = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=8, decimal_places=2)
+    BookCover = models.ImageField(upload_to="BookCover") 
 
     def __str__(self):
         return self.bookname
