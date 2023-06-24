@@ -1,0 +1,35 @@
+.form-group {
+    margin-bottom: 1rem;
+    margin-left: 500px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  input[type='text'],
+  input[type='number'] {
+    width: 30%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  button[type='submit'] {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 500px;
+  }
+  
+  button[type='submit']:hover {
+    background-color: #45a049;
+  }
+
+  h2{
+    margin-left: 500px;
+  }
+  

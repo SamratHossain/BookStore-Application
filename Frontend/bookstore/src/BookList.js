@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Booklist.css'
+import Navbar from './Navbar';
 
 const DataDisplay = () => {
   const [data, setData] = useState([]);
@@ -22,7 +23,8 @@ const DataDisplay = () => {
 
   return (
     <div>
-      <h1>Choice Your Favorite Books</h1>
+      <Navbar />
+      <h1>Available Books</h1>
       
           <div className="book-list">
         {data.map((book, index) => (

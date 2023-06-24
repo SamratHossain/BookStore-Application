@@ -1,70 +1,123 @@
 import React, { useState } from 'react';
+import './AddBook.css'
+import Navbar from './Navbar';
 
-const BookForm = () => {
-  const [bookData, setBookData] = useState({
-    name: '',
-    author: '',
-    price: '',
-    isbn: '',
-    image: null,
-  });
+const AddBook = () => {
+  const [bookName, setBookName] = useState('');
+  const [isbn, setISBN] = useState('');
+  const [author, setAuthor] = useState('');
+  const [price, setPrice] = useState('');
+  const [BookCover, setBookCover] = useState('');
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setBookData({ ...bookData, [name]: value });
-  };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setBookData({ ...bookData, image: file });
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Prepare form data
     const formData = new FormData();
-    formData.append('name', bookData.name);
-    formData.append('author', bookData.author);
-    formData.append('price', bookData.price);
-    formData.append('isbn', bookData.isbn);
-    formData.append('image', bookData.image);
+    formData.append('bookname', bookName);
+    formData.append('isbn', isbn);
+    formData.append('author', author);
+    formData.append('price', price);
+    formData.append('BookCover', BookCover);
+    console.log(formData)
+    
+    const bookData = {
+        bookName,
+        isbn,
+        author,
+        price,
+        BookCover,
+      };
+    // Send data to the backend
+    fetch('http://localhost:8000/add-book', {
+      method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(bookData),
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle response from the backend
+        console.log('Response from backend server:', data);
 
-    try {
-      // Send data to the Python API endpoint using fetch
-      const response = await fetch('http://your-python-api-endpoint', {
-        method: 'POST',
-        body: formData,
+        // Reset form fields
+        setBookName('');
+        setISBN('');
+        setAuthor('');
+        setPrice('');
+        setBookCover('');
+      })
+      .catch((error) => {
+        // Handle error
+        console.error('Error:', error);
       });
-
-      // Handle the response as needed
-      const data = await response.json();
-      console.log(data);
-
-      // Reset the form
-      setBookData({
-        name: '',
-        author: '',
-        price: '',
-        isbn: '',
-        image: null,
-      });
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="name" placeholder="Book Name" value={bookData.name} onChange={handleInputChange} />
-      <input type="text" name="author" placeholder="Author" value={bookData.author} onChange={handleInputChange} />
-      <input type="text" name="price" placeholder="Price" value={bookData.price} onChange={handleInputChange} />
-      <input type="text" name="isbn" placeholder="ISBN" value={bookData.isbn} onChange={handleInputChange} />
-      <input type="file" name="image" onChange={handleImageChange} />
+    <div>
+        <Navbar />
+      <h2>Add a Book</h2>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="bookName">Book Name:</label>
+          <input
+            type="text"
+            id="bookName"
+            value={bookName}
+            onChange={(e) => setBookName(e.target.value)}
+            required
+          />
+        </div>
 
-      <button type="submit">Submit</button>
-    </form>
+        <div className="form-group">
+          <label htmlFor="isbn">ISBN:</label>
+          <input
+            type="text"
+            id="isbn"
+            value={isbn}
+            onChange={(e) => setISBN(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="author">Author:</label>
+          <input
+            type="text"
+            id="author"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="price">Price:</label>
+          <input
+            type="number"
+            id="price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="image">Image:</label>
+          <input
+            type="file"
+            id="image"
+            onChange={(e) => setBookCover(e.target.files[0])}
+            required
+          />
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   );
 };
 
-export default BookForm;
+export default AddBook;
