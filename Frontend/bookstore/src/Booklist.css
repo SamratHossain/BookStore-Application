@@ -1,0 +1,32 @@
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .book {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .book-cover {
+    width: 100px;
+    height: 150px;
+    margin-right: 10px;
+  }
+  
+  .book-details {
+    flex: 1;
+  }
+  
+  h3 {
+    margin: 0;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
