@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Booklist.css'
+import '../CSS/Booklist.css'
 import Navbar from './Navbar';
 import BookQuantity from './BookQuantity';
 

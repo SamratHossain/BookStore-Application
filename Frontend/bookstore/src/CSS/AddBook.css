@@ -1,6 +1,11 @@
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .form-group {
     margin-bottom: 1rem;
-    margin-left: 500px;
   }
   
   label {
@@ -10,7 +15,7 @@
   
   input[type='text'],
   input[type='number'] {
-    width: 30%;
+    width: 250px;
     padding: 0.5rem;
     font-size: 1rem;
   }
@@ -22,7 +27,6 @@
     color: white;
     border: none;
     cursor: pointer;
-    margin-left: 500px;
   }
   
   button[type='submit']:hover {
@@ -30,6 +34,7 @@
   }
 
   h2{
-    margin-left: 500px;
+    justify-content: center;
+    text-align: center;
   }
   

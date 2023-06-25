@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import BookList from './BookList'
-import AddBook from './AddBook'
-import BookQuantity from './BookQuantity'
-import MyCart from './MyCart'
+import BookList from './Component/BookList'
+import AddBook from './Component/AddBook'
+import BookQuantity from './Component/BookQuantity'
+import MyCart from './Component/MyCart'
 
 function App() {
   return (

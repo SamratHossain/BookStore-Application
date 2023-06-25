@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import './AddBook.css'
+import { useNavigate } from 'react-router-dom';
+import '../CSS/AddBook.css'
 import Navbar from './Navbar';
 
 const AddBook = () => {
@@ -9,6 +10,7 @@ const AddBook = () => {
   const [price, setPrice] = useState('');
   const [BookCover, setBookCover] = useState('');
 
+  let navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,12 +55,16 @@ const AddBook = () => {
         // Handle error
         console.error('Error:', error);
       });
+
+      navigate('/')
   };
 
   return (
     <div>
         <Navbar />
-      <h2>Add a Book</h2>
+        <h2>Add a Book</h2>
+        <div className='main'>
+      
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="bookName">Book Name:</label>
@@ -116,6 +122,7 @@ const AddBook = () => {
 
         <button type="submit">Submit</button>
       </form>
+      </div>
     </div>
   );
 };

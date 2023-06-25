@@ -56,7 +56,6 @@
   }
   
   .quantity-input {
-    width: 50px;
     padding: 5px;
     text-align: center;
   }
@@ -68,5 +67,6 @@
     color: white;
     border: none;
     cursor: pointer;
+    margin-left: 50px;
   }
   

@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
-import './BookQuantity.css'
+import { useNavigate } from 'react-router-dom';
+import '../CSS/BookQuantity.css'
 import Navbar from './Navbar';
 
 
 const BookQuantity = (props) => {
   
   const { id } = useParams();
-  console.log(id)
+  let navigate = useNavigate();
      
   const [data, setData] = useState([]);
   const [cartItems, setCartItems] = useState([]);
@@ -35,10 +36,12 @@ const BookQuantity = (props) => {
 
     const updatedCartItems = [...cartItems, newItem];
     setCartItems(updatedCartItems);
-    console.log(updatedCartItems)
+    
 
     // Save the updated cart items to local storage
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+
+    navigate('/mycart');
   };
 
 

@@ -1,11 +1,25 @@
+.main {
+  display: flex;
+}
+
+.left-side {
+  flex: 1;
+  padding: 20px;
+}
+
+.right-side {
+  flex: 1;
+  padding: 20px;
+  color: black;
+}
+
 .cart-item {
     display: flex;
     align-items: center;
     margin-bottom: 2px;
-    width: 500px;
-    margin-left: 500px;
     border: 1px solid black;
     margin-top: 20px;
+    padding: 10px;
   }
   
   .book-image {
@@ -42,8 +56,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    width: 500px;
-    margin-left: 500px;
     border: 1px solid black;
     margin-top: 20px;
     font-size: 20px;
@@ -52,3 +64,14 @@
  .total h3{
   margin-right: 30px;
  }
+
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color: green;
+  margin-top: 10px;
+}
+
+

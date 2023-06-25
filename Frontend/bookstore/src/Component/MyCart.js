@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
-import './MyCart.css'
+import '../CSS/MyCart.css'
+import ShippingAddress from '../ShippingAddress';
 
 const CartItem = () => {
   const [data, setData] = useState([]);
@@ -55,6 +56,11 @@ const CartItem = () => {
   return (
     <>
     <Navbar />
+    <div className='main'>
+      <div className='left-side'>
+    <div className='container'>
+      <h3>Your Cart</h3>
+    </div>
      {
       data.map((item, index) => (
         <div className="cart-item" key={index}>
@@ -74,7 +80,14 @@ const CartItem = () => {
       <h3>Total Item: {totalQuantity} </h3>    
       <h3>Total Price: {totalPrice} </h3>
       </div>
-    
+      </div>
+      <div className='right-side'>
+      <div className='container'> 
+        <h3>Shipping Address</h3>
+       </div>
+       <ShippingAddress />
+       </div>
+    </div>
     </>
   );
 };
