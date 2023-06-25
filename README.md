@@ -42,3 +42,14 @@ React.js is a JavaScript library developed by Facebook for building user interfa
 
 React Router DOM
 React Router DOM is a popular routing library for React applications. It provides a declarative way to handle client-side routing, allowing for dynamic navigation and rendering of components based on the current URL.
+
+Project Instruction For Backend:
+Clone the GitHub repository on your local computer.
+Open the backend root directory where the manage.py file is available
+Run this  command from your terminal "python/python3 manage.py runserver 8000"
+
+Project Instruction For Frontend:
+Clone the GitHub repository on your local computer.
+Open the frontend root directory where the src folder is available
+Run this  command from your terminal "npm start"
+Before "npm start" make sure you have installed all dependencies
