@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 // import './AddBook.css'
-// import './ShippingAddress.css'
-import Navbar from './Component/Navbar';
+import '../CSS/ShippingAddress.css'
+import Navbar from './Navbar';
 
 const ShippingAddress = () => {
     const [Name, setName] = useState('');

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import '../CSS/MyCart.css'
-import ShippingAddress from '../ShippingAddress';
+import ShippingAddress from './ShippingAddress';
 
 const CartItem = () => {
   const [data, setData] = useState([]);
@@ -67,7 +67,7 @@ const CartItem = () => {
       <img className="book-image" src={item.image} alt="Book" />
       <div className="item-details">
         <h4 className="book-name">{item.bookName}</h4>
-        <p className="price">Price: ${item.price}</p>
+        <p className="price">Price: ৳{item.price}</p>
         <p className="quantity">Quantity:{item.quantity}</p>
       </div>
       <button className="remove-button" onClick={() => handleRemoveItem(item)}>
@@ -78,7 +78,7 @@ const CartItem = () => {
      }
      <div className='total'>
       <h3>Total Item: {totalQuantity} </h3>    
-      <h3>Total Price: {totalPrice} </h3>
+      <h3>Total Price: ৳{totalPrice} </h3>
       </div>
       </div>
       <div className='right-side'>

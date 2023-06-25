@@ -81,7 +81,7 @@ const BookQuantity = (props) => {
         <div className="book-info">
           <h2 className="book-title">{data.bookname}</h2>
           <p className="book-author">By {data.author}</p>
-          <p className="book-price">Pice: {data.price}</p>
+          <p className="book-price">Pice: ৳{data.price}</p>
           <p className="book-isbn">ISBN: {data.isbn}</p>
         </div>
       </div>
