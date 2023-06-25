@@ -29,7 +29,7 @@ const DataDisplay = () => {
       
         <div className="book-list">
         {data.map((book, index) => (
-          <Link className='book-link' to={`quantity/${book.id}`}> 
+        <Link className='book-link' to={`quantity/${book.id}`}>  
         <div className="book" key={index}>
           <img className="book-cover" src={book.BookCover} alt={book.bookname} />
           <div className="book-details">
@@ -47,45 +47,3 @@ const DataDisplay = () => {
 };
 
 export default DataDisplay;
-
-// import React from 'react';
-// import './Booklist.css'
-
-// const BookList = () => {
-//   // Sample book data
-//   const books = [
-//     {
-//       name: 'Book 1',
-//       isbn: 'ISBN-123456789',
-//       author: 'Author 1',
-//       price: '$9.99',
-//       cover: 'book1.jpg',
-//     },
-//     {
-//       name: 'Book 2',
-//       isbn: 'ISBN-987654321',
-//       author: 'Author 2',
-//       price: '$12.99',
-//       cover: 'book2.jpg',
-//     },
-//     // Add more books as needed
-//   ];
-
-//   return (
-//     <div className="book-list">
-//       {books.map((book, index) => (
-//         <div className="book" key={index}>
-//           <img className="book-cover" src={"https://idsb.tmgrup.com.tr/ly/uploads/images/2022/12/19/thumbs/800x531/247181.jpg?v=1671435583"} alt={book.name} />
-//           <div className="book-details">
-//             <h3>{book.name}</h3>
-//             <p>ISBN: {book.isbn}</p>
-//             <p>Author: {book.author}</p>
-//             <p>Price: {book.price}</p>
-//           </div>
-//         </div>
-//       ))}
-//     </div>
-//   );
-// };
-
-// export default BookList;

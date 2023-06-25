@@ -10,7 +10,37 @@ const BookQuantity = (props) => {
   console.log(id)
      
   const [data, setData] = useState([]);
-  console.log(data)
+  const [cartItems, setCartItems] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    // Retrieve cart data from local storage
+    const savedCart = localStorage.getItem('cartItems');
+    if (savedCart) {
+      setCartItems(JSON.parse(savedCart));
+    }
+  }, []);
+
+  const handleAddToCart = () => {
+    const newItem = {
+      bookId: data.id,
+      bookName: data.bookname,
+      isbn: data.isbn,
+      author: data.author,
+      price: data.price,
+      image: data.BookCover,
+      quantity: quantity
+    };
+
+
+    const updatedCartItems = [...cartItems, newItem];
+    setCartItems(updatedCartItems);
+    console.log(updatedCartItems)
+
+    // Save the updated cart items to local storage
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  };
+
 
 
   useEffect(() => {
@@ -27,7 +57,6 @@ const BookQuantity = (props) => {
     fetchData();
   }, []);
 
-  const [quantity, setQuantity] = useState(0);
 
   const handleIncrement = () => {
     setQuantity(prevQuantity => prevQuantity + 1);
@@ -58,7 +87,7 @@ const BookQuantity = (props) => {
         <input className="quantity-input" type="number" value={quantity} readOnly />
         <button className="quantity-button" onClick={handleIncrement}>+</button>
       </div>
-      <button className='quantity-submit-button'>Add To Cart</button>
+      <button className='quantity-submit-button' onClick={handleAddToCart}>Add To Cart</button>
     </div>
     </>
   );
