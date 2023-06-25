@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './Booklist.css'
 import Navbar from './Navbar';
+import BookQuantity from './BookQuantity';
 
 const DataDisplay = () => {
   const [data, setData] = useState([]);
-  console.log(data)
-  const proxy = "http://localhost:8000";
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,8 +27,9 @@ const DataDisplay = () => {
       <Navbar />
       <h1>Available Books</h1>
       
-          <div className="book-list">
+        <div className="book-list">
         {data.map((book, index) => (
+          <Link className='book-link' to={`quantity/${book.id}`}> 
         <div className="book" key={index}>
           <img className="book-cover" src={book.BookCover} alt={book.bookname} />
           <div className="book-details">
@@ -37,6 +39,7 @@ const DataDisplay = () => {
             <p>Price: ৳{book.price}</p>
           </div>
         </div>
+        </Link>
       ))}
     </div>
     </div>

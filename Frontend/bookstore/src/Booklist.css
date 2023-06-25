@@ -11,6 +11,10 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
+
+  .book-link{
+    text-decoration: none;
+  }
   
   .book-cover {
     width: 100px;
